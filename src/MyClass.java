@@ -9,6 +9,8 @@ public class MyClass implements BitArray {
         myClass.setBit(1);
         myClass.setBit(3);
         myClass.setBit(4);
+        myClass.setBit(33);
+        myClass.setBit(22);
         System.out.println(Long.toBinaryString(n) + "\n" + n);
         System.out.println(myClass.getBitCount());
         System.out.println(myClass.size());
@@ -32,14 +34,7 @@ public class MyClass implements BitArray {
 
     @Override
     public long getBitCount() {
-        long bitCount = 0L;
-        for (int i = 0; i < 64; i++) {
-            long resultLong = number << (63 - i) & n;
-            if (resultLong != 0L) {
-                bitCount++;
-            } else {}
-        }
-        return bitCount;
+        return Long.bitCount(n);
     }
 
     @Override
